@@ -1,0 +1,65 @@
+<html>
+	<script>
+		var currentPlace = 1;
+
+		list = new Array(39);
+		check = new Array(39);
+
+		function initializeList()
+		{
+			document.getElementById("r0").innerHTML = "Fox";
+		}
+
+		function rankCharacter(chr)
+		{
+			if(check[chr] != true)
+			{
+			list[chr] = currentPlace;
+			currentPlace++;
+
+			var curr = "c" + chr.toString();
+			document.getElementById(curr).innerHTML = list[chr];
+
+			check[chr] = true;
+			}
+		}
+
+		function unrankCharacter(chr)
+		{
+			
+		}
+	</script>
+
+	<table border="1">
+	<tr>
+	<td>
+	<div id="r0" onclick="rankCharacter(0)"><img src="FoxImage.png"> </img></div>
+	</td>
+	<td>
+	<div id="r1" onclick="rankCharacter(1)"><img src="MetaKnightImage.png"> </img></div>
+	</td>
+	<td>
+	<div id="r2" onclick="rankCharacter(2)"><img src="LucarioImage.png"> </img></div>
+	</td>
+	<td>
+	<div id="r3" onclick="rankCharacter(3)"><img src="ZeldaImage.png"> </img></div>
+	</td>
+	</tr>
+
+	<tr>
+	<td>
+	<div id="c0" onclick="unrankCharacter(0)"> </div>
+	</td>
+	<td>
+	<div id="c1" onclick="unrankCharacter(1)"> </div>
+	</td>
+	<td>
+	<div id="c2" onclick="unrankCharacter(2)"> </div>
+	</td>
+	<td>
+	<div id="c3" onclick="unrankCharacter(3)"> </div>
+	</td>
+	</tr>
+	</table>
+
+</html>
