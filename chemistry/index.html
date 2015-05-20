@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+
+<script>
+
+var fb = new Firebase("https://dazzling-heat-4457.firebaseio.com");
+
+var aa;
+var bb;
+
+fb.on("value", function(snapshot)
+{
+
+  document.getElementById("question").innerHTML = snapshot.child("0").child("question").val();
+  document.getElementById("option1").innerHTML = snapshot.child("0").child("answers").child("a").val();
+  document.getElementById("option2").innerHTML = snapshot.child("0").child("answers").child("b").val();
+  document.getElementById("option3").innerHTML = snapshot.child("0").child("answers").child("c").val();
+  document.getElementById("option4").innerHTML = snapshot.child("0").child("answers").child("d").val();
+  document.getElementById("option5").innerHTML = snapshot.child("0").child("answers").child("e").val();
+
+}
+);
+
+	//aa = snapshot.child("0").question;
+	//bb = snapshot.child("0").child("correct").val();
+
+//document.getElementById("question").innerHTML = aa;
+//document.getElementById("option1").innerHTML = bb;
+
+//fb.orderByKey().on("value", function(snapshot) {
+ // snapshot.forEach(function(data) {
+  //  alert(data.child("question").val());
+  //});
+//});
+
+
+</script>
+
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <div id="question" /><br>
+  <div id="option1" /><br>
+  <div id="option2" /><br>
+  <div id="option3" /><br>
+  <div id="option4" /><br>
+  <div id="option5" /><br>
+ </body>
+</html>
