@@ -6,12 +6,12 @@
 <script>
 
 var fb = new Firebase("https://dazzling-heat-4457.firebaseio.com");
-var N = 2; //number of questions in database
-
-var q = parseInt(Math.random() * N).toString(); //generates random question number
 
 fb.on("value", function(snapshot)
 {
+  var N = snapshot.numChildren(); //number of questions in database
+
+  var q = parseInt(Math.random() * N).toString(); //generates random question number
   document.getElementById("question").innerHTML = snapshot.child(q).child("question").val();
   document.getElementById("option1").innerHTML = snapshot.child(q).child("answers").child("a").val();
   document.getElementById("option2").innerHTML = snapshot.child(q).child("answers").child("b").val();
@@ -21,6 +21,19 @@ fb.on("value", function(snapshot)
 
 }
 );
+
+	//aa = snapshot.child("0").question;
+	//bb = snapshot.child("0").child("correct").val();
+
+//document.getElementById("question").innerHTML = aa;
+//document.getElementById("option1").innerHTML = bb;
+
+//alert(fb.numChildren());
+
+//fb.on("value", function(snapshot) {
+      //alert(snapshot.numChildren());
+//});
+
 
 </script>
 
