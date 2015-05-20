@@ -6,35 +6,21 @@
 <script>
 
 var fb = new Firebase("https://dazzling-heat-4457.firebaseio.com");
+var N = 2; //number of questions in database
 
-var aa;
-var bb;
+var q = parseInt(Math.random() * N).toString(); //generates random question number
 
 fb.on("value", function(snapshot)
 {
-
-  document.getElementById("question").innerHTML = snapshot.child("0").child("question").val();
-  document.getElementById("option1").innerHTML = snapshot.child("0").child("answers").child("a").val();
-  document.getElementById("option2").innerHTML = snapshot.child("0").child("answers").child("b").val();
-  document.getElementById("option3").innerHTML = snapshot.child("0").child("answers").child("c").val();
-  document.getElementById("option4").innerHTML = snapshot.child("0").child("answers").child("d").val();
-  document.getElementById("option5").innerHTML = snapshot.child("0").child("answers").child("e").val();
+  document.getElementById("question").innerHTML = snapshot.child(q).child("question").val();
+  document.getElementById("option1").innerHTML = snapshot.child(q).child("answers").child("a").val();
+  document.getElementById("option2").innerHTML = snapshot.child(q).child("answers").child("b").val();
+  document.getElementById("option3").innerHTML = snapshot.child(q).child("answers").child("c").val();
+  document.getElementById("option4").innerHTML = snapshot.child(q).child("answers").child("d").val();
+  document.getElementById("option5").innerHTML = snapshot.child(q).child("answers").child("e").val();
 
 }
 );
-
-	//aa = snapshot.child("0").question;
-	//bb = snapshot.child("0").child("correct").val();
-
-//document.getElementById("question").innerHTML = aa;
-//document.getElementById("option1").innerHTML = bb;
-
-//fb.orderByKey().on("value", function(snapshot) {
- // snapshot.forEach(function(data) {
-  //  alert(data.child("question").val());
-  //});
-//});
-
 
 </script>
 
@@ -47,11 +33,11 @@ fb.on("value", function(snapshot)
   <title>Document</title>
  </head>
  <body>
-  <div id="question" /><br>
-  <div id="option1" /><br>
-  <div id="option2" /><br>
-  <div id="option3" /><br>
-  <div id="option4" /><br>
-  <div id="option5" /><br>
+  <div id="question"></div><br>
+  <div id="option1"></div><br>
+  <div id="option2"></div><br>
+  <div id="option3"></div><br>
+  <div id="option4"></div><br>
+  <div id="option5"></div><br>
  </body>
 </html>
