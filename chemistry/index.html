@@ -1,7 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html>
 
 <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+<script src="http://latex.codecogs.com/latexit.js"></script>
 
 <script>
 
@@ -12,15 +13,18 @@ fb.on("value", function(snapshot)
   var N = snapshot.numChildren(); //number of questions in database
 
   var q = parseInt(Math.random() * N).toString(); //generates random question number
-  document.getElementById("question").innerHTML = snapshot.child(q).child("question").val();
-  document.getElementById("option1").innerHTML = snapshot.child(q).child("answers").child("a").val();
-  document.getElementById("option2").innerHTML = snapshot.child(q).child("answers").child("b").val();
-  document.getElementById("option3").innerHTML = snapshot.child(q).child("answers").child("c").val();
-  document.getElementById("option4").innerHTML = snapshot.child(q).child("answers").child("d").val();
-  document.getElementById("option5").innerHTML = snapshot.child(q).child("answers").child("e").val();
+  document.getElementById("question").innerHTML = "$"  + snapshot.child(q).child("question").val().toString()  + "$";
+  document.getElementById("option1").innerHTML = snapshot.child(q).child("answers").child("a").val().toString();
+  document.getElementById("option2").innerHTML = snapshot.child(q).child("answers").child("b").val().toString();
+  document.getElementById("option3").innerHTML = snapshot.child(q).child("answers").child("c").val().toString();
+  document.getElementById("option4").innerHTML = snapshot.child(q).child("answers").child("d").val().toString();
+  document.getElementById("option5").innerHTML = snapshot.child(q).child("answers").child("e").val().toString();
 
 }
 );
+
+//document.getElementById("free").innerHTML = "Dividing $x^2+1$ by $y^2$ gives \[\frac{x^2+1}{y^2}\]";
+
 
 	//aa = snapshot.child("0").question;
 	//bb = snapshot.child("0").child("correct").val();
@@ -46,11 +50,15 @@ fb.on("value", function(snapshot)
   <title>Document</title>
  </head>
  <body>
-  <div id="question"></div><br>
-  <div id="option1"></div><br>
-  <div id="option2"></div><br>
-  <div id="option3"></div><br>
-  <div id="option4"></div><br>
-  <div id="option5"></div><br>
+  <div id="question" lang="latex"></div><br>
+  <div id="option1" lang="latex"></div><br>
+  <div id="option2" lang="latex"></div><br>
+  <div id="option3" lang="latex"></div><br>
+  <div id="option4" lang="latex"></div><br>
+  <div id="option5" lang="latex"></div><br>
+  <!--<div id="free" lang="latex">Dividing $x^2+1$ by $y^2$ gives \[\frac{x^2+1}{y^2}\]</div>-->
+
  </body>
+
+
 </html>
