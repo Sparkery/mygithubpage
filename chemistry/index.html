@@ -2,7 +2,61 @@
 <html>
 
 <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-<script src="http://latex.codecogs.com/latexit.js"></script>
+
+<script>
+var q;
+var loc = 0;
+function check(ans)
+{
+	if(loc == 0)
+	{
+		//alert(curr);
+		fb.on("value", function(snapshot)
+		{
+			var act = snapshot.child(q).child("correct").val().toString();
+			//alert(act);
+			if(ans == act)
+			{
+				document.getElementById("answer").innerHTML = "YAY!"
+			}
+			else
+			{
+				document.getElementById("answer").innerHTML = "ALMOST!"
+			}
+			
+			document.getElementById("xplain").innerHTML = "The correct answer is <strong>" + act + "</strong>. " + snapshot.child(q).child("explanation").val().toString();
+			var fre = parseInt(snapshot.child(q).child("frequency").child(ans).val().toString());
+			//snapshot.child(q).child("frequency").update({ans: fre+1});
+		}
+		);
+		loc = 1;
+	}
+}
+</script>
+
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Randomized Chemistry Questions</title>
+ </head>
+ <body>
+ <h5>Click on your answer. Refresh the page when done.</h5>
+  <div id="question"></div><br>
+  <div id="option1" onclick=check("a")></div><br>
+  <div id="option2" onclick=check("b")></div><br>
+  <div id="option3" onclick=check("c")></div><br>
+  <div id="option4" onclick=check("d")></div><br>
+  <div id="option5" onclick=check("e")></div><br>
+  <br><br>
+  <div id="answer"></div><br>
+  <div id="xplain"></div><br>
+
+ </body>
+
+
 
 <script>
 
@@ -12,8 +66,9 @@ fb.on("value", function(snapshot)
 {
   var N = snapshot.numChildren(); //number of questions in database
 
-  var q = parseInt(Math.random() * N).toString(); //generates random question number
-  document.getElementById("question").innerHTML = "$"  + snapshot.child(q).child("question").val().toString()  + "$";
+  q = parseInt(Math.random() * N).toString(); //generates random question number
+
+  document.getElementById("question").innerHTML = snapshot.child(q).child("question").val().toString();
   document.getElementById("option1").innerHTML = snapshot.child(q).child("answers").child("a").val().toString();
   document.getElementById("option2").innerHTML = snapshot.child(q).child("answers").child("b").val().toString();
   document.getElementById("option3").innerHTML = snapshot.child(q).child("answers").child("c").val().toString();
@@ -22,6 +77,8 @@ fb.on("value", function(snapshot)
 
 }
 );
+
+
 
 //document.getElementById("free").innerHTML = "Dividing $x^2+1$ by $y^2$ gives \[\frac{x^2+1}{y^2}\]";
 
@@ -40,25 +97,6 @@ fb.on("value", function(snapshot)
 
 
 </script>
-
- <head>
-  <meta charset="UTF-8">
-  <meta name="Generator" content="EditPlus®">
-  <meta name="Author" content="">
-  <meta name="Keywords" content="">
-  <meta name="Description" content="">
-  <title>Document</title>
- </head>
- <body>
-  <div id="question" lang="latex"></div><br>
-  <div id="option1" lang="latex"></div><br>
-  <div id="option2" lang="latex"></div><br>
-  <div id="option3" lang="latex"></div><br>
-  <div id="option4" lang="latex"></div><br>
-  <div id="option5" lang="latex"></div><br>
-  <!--<div id="free" lang="latex">Dividing $x^2+1$ by $y^2$ gives \[\frac{x^2+1}{y^2}\]</div>-->
-
- </body>
 
 
 </html>
