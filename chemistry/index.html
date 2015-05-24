@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
-
+<head>
 <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
 var q;
 var loc = 0;
@@ -33,8 +33,6 @@ function check(ans)
 	}
 }
 </script>
-
- <head>
   <meta charset="UTF-8">
   <meta name="Generator" content="EditPlus®">
   <meta name="Author" content="">
@@ -74,6 +72,7 @@ fb.on("value", function(snapshot)
   document.getElementById("option3").innerHTML = snapshot.child(q).child("answers").child("c").val().toString();
   document.getElementById("option4").innerHTML = snapshot.child(q).child("answers").child("d").val().toString();
   document.getElementById("option5").innerHTML = snapshot.child(q).child("answers").child("e").val().toString();
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 
 }
 );
