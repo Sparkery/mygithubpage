@@ -27,6 +27,8 @@ function check(ans)
 			document.getElementById("xplain").innerHTML = "The correct answer is <strong>" + act + "</strong>. " + snapshot.child(q).child("explanation").val().toString();
 			var fre = parseInt(snapshot.child(q).child("frequency").child(ans).val().toString());
 			//snapshot.child(q).child("frequency").update({ans: fre+1});
+
+			MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 		}
 		);
 		loc = 1;
