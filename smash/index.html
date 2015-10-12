@@ -1,17 +1,28 @@
 <style>
-html
-{ 
-  background: url(http://orig09.deviantart.net/3758/f/2014/271/9/e/ssb4_all_characters_by_thebaconcity-d80wz8z.png) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -webkit-filter: grayscale(1);
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  filter: grayscale(1);
+//html
+//{ 
+//  background: url(http://orig09.deviantart.net/3758/f/2014/271/9/e/ssb4_all_characters_by_thebaconcity-d80wz8z.png) no-repeat center center fixed; 
+//  -webkit-background-size: cover;
+//  -webkit-filter: grayscale(1);
+//  -moz-background-size: cover;
+//  -o-background-size: cover;
+//  background-size: cover;
+//  filter: grayscale(1);
+//}
+.my_image_class
+{
+    filter: grayscale(100%); /* Current draft standard */
+    -webkit-filter: grayscale(100%); /* New WebKit */
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%); /* Not yet supported in Gecko, Opera or IE */
+    filter: url(resources.svg#desaturate); /* Gecko */
+    filter: gray; /* IE */
+    -webkit-filter: grayscale(1); /* Old WebKit */
 }
 </style>
 
-<html>
+<html class="my_image_class">
 
 <ul>
   <li>Melee
