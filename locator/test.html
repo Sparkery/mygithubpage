@@ -122,6 +122,14 @@ function initMap() {
   });
 }
 
+		
+function deleteMarkers(markersArray) {		
+  for (var i = 0; i < markersArray.length; i++) {		
+    markersArray[i].setMap(null);		
+  }		
+  markersArray = [];		
+}
+
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHwQPqMqZXNz-fW4fUXGIDc0uweluwiVg&signed_in=true&callback=initMap"
         async defer></script>
