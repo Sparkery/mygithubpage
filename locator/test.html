@@ -46,10 +46,8 @@
   <body>
     <div id="right-panel">
       <div id="inputs">
-<form onsubmit="updateOrigin()">
-	<input type="text" />
-	<input type="submit" text="Over Here">
-</form>
+	<input id="orgin" type="text" />
+	<button text="Over Here" onclick="updateOrigin()" />
       </div>
       <div>
         <strong>Results</strong>
@@ -62,7 +60,7 @@ function initMap() {
   var bounds = new google.maps.LatLngBounds;
   var markersArray = [];
 
-  var origin = '3919 Beeker Mill Pl, Chantilly, VA';
+  //var origin = '3919 Beeker Mill Pl, Chantilly, VA';
   var destination =    ['467 W Patrick St, Baltimore, MD',
   			'3921 Vero Rd, Halethorpe, MD'];
 
@@ -132,6 +130,12 @@ function deleteMarkers(markersArray) {
     markersArray[i].setMap(null);		
   }		
   markersArray = [];		
+}
+
+function updateOrigin()
+{
+	var origin = document.getElementById("orgin").innerHTML;
+	initMap();
 }
 
     </script>
