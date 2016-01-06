@@ -57,7 +57,6 @@ var destinationB = {lat: 50.087, lng: 14.421};
       </div>
       <div id="output"></div>
     </div>
-    <div id="map"></div>
     <script>
 function initMap() {
   var bounds = new google.maps.LatLngBounds;
@@ -124,13 +123,6 @@ function initMap() {
       }
     }
   });
-}
-
-function deleteMarkers(markersArray) {
-  for (var i = 0; i < markersArray.length; i++) {
-    markersArray[i].setMap(null);
-  }
-  markersArray = [];
 }
 
     </script>
