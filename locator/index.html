@@ -6,14 +6,6 @@
   </head>
   <body>
     <div id="right-panel">
-      <div id="inputs">
-        <pre>
-var origin1 = {lat: 55.930, lng: -3.118};
-var origin2 = 'Greenwich, England';
-var destinationA = 'Stockholm, Sweden';
-var destinationB = {lat: 50.087, lng: 14.421};
-        </pre>
-      </div>
       <div>
         <strong>Results</strong>
       </div>
@@ -25,19 +17,9 @@ function initMap() {
   var bounds = new google.maps.LatLngBounds;
   var markersArray = [];
 
-  var origin1 = {lat: 55.93, lng: -3.118};
-  var origin2 = 'Greenwich, England';
-  var destinationA = 'Stockholm, Sweden';
-  var destinationB = {lat: 50.087, lng: 14.421};
+  var origin = '3919 Beeker Mill Pl, Chantilly, VA 20151, USA';
+  var destination = 'Blacksburg, VA, USA';
 
-  var destinationIcon = 'https://chart.googleapis.com/chart?' +
-      'chst=d_map_pin_letter&chld=D|FF0000|000000';
-  var originIcon = 'https://chart.googleapis.com/chart?' +
-      'chst=d_map_pin_letter&chld=O|FFFF00|000000';
-  var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 55.53, lng: 9.4},
-    zoom: 10
-  });
   var geocoder = new google.maps.Geocoder;
 
   var service = new google.maps.DistanceMatrixService;
