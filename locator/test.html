@@ -60,7 +60,8 @@ function initMap() {
   var markersArray = [];
 
   var origin = '3919 Beeker Mill Pl, Chantilly, VA';
-  var destination = 'Baltimore, MD';
+  var destination =    ['467 W Patrick St, Baltimore, MD',
+  			'3921 Vero Rd, Halethorpe, MD'];
 
   var destinationIcon = 'https://chart.googleapis.com/chart?' +
       'chst=d_map_pin_letter&chld=D|FF0000|000000';
@@ -75,7 +76,7 @@ function initMap() {
   var service = new google.maps.DistanceMatrixService;
   service.getDistanceMatrix({
     origins: [origin],
-    destinations: [destination],
+    destinations: destination,
     travelMode: google.maps.TravelMode.DRIVING,
     unitSystem: google.maps.UnitSystem.METRIC,
     avoidHighways: false,
