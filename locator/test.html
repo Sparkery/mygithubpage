@@ -147,6 +147,7 @@ function loadDestinations()
 
 	fb.on("value", function(snapshot)
 	{
+		alert("entered on");
 	  var N = snapshot.numChildren(); //number of questions in database
 	  tourneyname = new Array(N);
 	  destination = new Array(N);
