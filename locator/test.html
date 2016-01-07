@@ -4,7 +4,8 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHwQPqMqZXNz-fW4fUXGIDc0uweluwiVg&signed_in=true"
         async defer></script>
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-    <script>var fb = new Firebase("https://smash-tourney-find.firebaseio.com");</script>
+    <script>var fb = new Firebase("https://smash-tourney-find.firebaseio.com");
+    	    loadDestinations();</script>
     <title>Smash Tournament Finder</title>
 <style>
       html, body {
@@ -135,7 +136,6 @@ function deleteMarkers(markersArray) {
 
 function updateOrigin()
 {
-	loadDestinations();
 	origin = document.getElementById("orgin").value;
 	setTimeout(initMap(), 2000);
 }
