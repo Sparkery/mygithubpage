@@ -155,6 +155,8 @@ function loadDestinations()
 	  	tourneyname[i] = childSnapshot.key().toString();
 	  	destination[i] = childSnapshot.child("address").val().toString();
 	  	i++;
+	  	
+	  alert(tourneyname[i-1]);
 	 }
 	  );
 	  
