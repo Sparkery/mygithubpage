@@ -136,7 +136,10 @@ function deleteMarkers(markersArray) {
 
 function updateOrigin()
 {
-	loadDestinations();
+	while(destination == ["fox"])
+	{
+		loadDestinations();
+	}
 	origin = document.getElementById("orgin").value;
 	initMap();
 }
