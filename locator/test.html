@@ -61,9 +61,6 @@ function initMap() {
   var bounds = new google.maps.LatLngBounds;
   var markersArray = [];
 
-  //var origin = '3919 Beeker Mill Pl, Chantilly, VA';
-  var destination =    ['467 W Patrick St, Baltimore, MD',
-  			'3921 Vero Rd, Halethorpe, MD'];
 
   var destinationIcon = 'https://chart.googleapis.com/chart?' +
       'chst=d_map_pin_letter&chld=D|FF0000|000000';
@@ -142,14 +139,18 @@ function updateOrigin()
 
 function loadDestinations()
 {
-	var fb = new Firebase("https://dazzling-heat-4457.firebaseio.com");
+	var fb = new Firebase("https://smash-tourney-find.firebaseio.com");
 
 	fb.on("value", function(snapshot)
 	{
 	  var N = snapshot.numChildren(); //number of questions in database
-
+	  tourneyname = new Array(N);
+	  destination = new Array(N);
+	  var i = 0;
 	  snapshot.forEach(function(childSnapshot) {
-	  	alert(childSnapshot.key().toString());
+	  	tourneyname[i] = childSnapshot.key().toString();
+	  	destination[i] = childSnapshot.address.val().toString();
+	  	i++;
 	  	
 	 }
 	  );
