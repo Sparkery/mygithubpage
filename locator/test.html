@@ -61,7 +61,6 @@
     <div id="map"></div>
     <script>
 function initMap() {
-	alert(destination);
   var bounds = new google.maps.LatLngBounds;
   var markersArray = [];
 
@@ -138,7 +137,7 @@ function updateOrigin()
 {
 	loadDestinations();
 	origin = document.getElementById("orgin").value;
-	setTimeout(initMap(), 500);
+	setTimeout(initMap(), 1000);
 }
 
 function loadDestinations()
@@ -167,7 +166,6 @@ function loadDestinations()
 
 	}
 	);
-	alert(destination);
 }
 
     </script>
