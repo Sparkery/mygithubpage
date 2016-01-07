@@ -60,7 +60,7 @@
     <div id="map"></div>
     <script>
 function initMap() {
-	//alert(origin);
+	alert("do i even get here");
   var bounds = new google.maps.LatLngBounds;
   var markersArray = [];
 
@@ -156,7 +156,6 @@ function loadDestinations()
 	  	destination[i] = childSnapshot.child("address").val().toString();
 	  	i++;
 	  	
-	  alert(tourneyname[i-1]);
 	 }
 	  );
 	  
