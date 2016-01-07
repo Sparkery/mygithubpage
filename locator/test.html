@@ -142,7 +142,7 @@ function updateOrigin()
 
 function loadDestinations()
 {
-	destination;
+	destination = [];
 	var fb = new Firebase("https://smash-tourney-find.firebaseio.com");
 
 	fb.on("value", function(snapshot)
