@@ -152,6 +152,7 @@ function loadDestinations()
 	  alert("Got to before foreach");
 	  snapshot.forEach(function(childSnapshot) {
 	  	tourneyname[i] = childSnapshot.key().toString();
+	  	alert("Completed tourneyname input");
 	  	destination[i] = childSnapshot.address.val().toString();
 	  	i++;
 	  	alert("Got to increment");
