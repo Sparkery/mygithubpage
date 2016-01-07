@@ -136,12 +136,9 @@ function deleteMarkers(markersArray) {
 
 function updateOrigin()
 {
-	while(destination == ["fox"])
-	{
-		loadDestinations();
-	}
+	loadDestinations();
 	origin = document.getElementById("orgin").value;
-	initMap();
+	setTimeout(initMap(), 500);
 }
 
 function loadDestinations()
