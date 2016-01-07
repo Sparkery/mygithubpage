@@ -144,18 +144,14 @@ function loadDestinations()
 	fb.on("value", function(snapshot)
 	{
 	  var N = snapshot.numChildren(); //number of questions in database
-	  alert("Got to before initializing");
 	  tourneyname = new Array(N);
 	  destination = new Array(N);
 	  
 	  var i = 0;
-	  alert("Got to before foreach");
 	  snapshot.forEach(function(childSnapshot) {
 	  	tourneyname[i] = childSnapshot.key().toString();
-	  	alert("Completed tourneyname input");
 	  	destination[i] = childSnapshot.child("address").val().toString();
 	  	i++;
-	  	alert("Got to increment");
 	 }
 	  );
 	  
