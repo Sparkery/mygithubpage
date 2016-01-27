@@ -21,11 +21,15 @@
 <script src="js/chessboard.js"></script>
 <script>
 var init = function() {
-
-//--- start example JS ---
-var board = ChessBoard('board', 'start');
-//--- end example JS ---
-
+  var cfg = {
+  draggable: true,
+  position: 'start',
+  onDragStart: onDragStart,
+  onDrop: onDrop,
+  onSnapEnd: onSnapEnd
+  };
+  
+  board = ChessBoard('board', cfg);
 }; // end init()
 $(document).ready(init);
 </script>
