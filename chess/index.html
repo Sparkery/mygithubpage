@@ -11,6 +11,10 @@
 <body>
 <p>Foxes!</p>
 
+<div id="board" style="width: 400px"></div>
+<p>Status: <span id="status"></span></p>
+<p>FEN: <span id="fen"></span></p>
+<p>PGN: <span id="pgn"></span></p>
 
 <script src="js/json3.min.js"></script>
 <script src="js/jquery-1.10.1.min.js"></script>
@@ -98,10 +102,6 @@ board = ChessBoard('board', cfg);
 updateStatus();
 </script>
 
-<div id="board" style="width: 400px"></div>
-<p>Status: <span id="status"></span></p>
-<p>FEN: <span id="fen"></span></p>
-<p>PGN: <span id="pgn"></span></p>
 
 </body>
 </html>
