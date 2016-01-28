@@ -40,11 +40,12 @@ var moveList;
 fb.on("value", function(snapshot)
 	{
 	  var N = snapshot.numChildren(); //number of questions in database
-	  initPuzzle = snapshot.child("0").child("fen").val().toString();
-	  moveList = new Array(snapshot.child("0").child("mov").numChildren());
+	  var q = parseInt(Math.random() * N).toString();
+	  initPuzzle = snapshot.child(q).child("fen").val().toString();
+	  moveList = new Array(snapshot.child(q).child("mov").numChildren());
 	  for(f = 0; f < moveList.length; ++f)
 	  {
-	  	moveList[f] = snapshot.child("0").child("mov").child(f.toString()).val().toString();
+	  	moveList[f] = snapshot.child(q).child("mov").child(f.toString()).val().toString();
 	  }
 	  readyState = true;
 	 });
