@@ -20,7 +20,6 @@
 <p>Solve 100 Puzzles and Donate an Apple to an Animal!</p>
 
 <div id="board" style="width: 400px"></div>
-<p>Status: <span id="status"></span></p>
 <p>FEN: <span id="fen"></span></p>
 <p>PGN: <span id="pgn"></span></p>
 
@@ -38,7 +37,7 @@ var i = 0; //to keep track of which array entries of above
 
 var board,
   game = new Chess(initPuzzle),
-  counterEl = $('#counter'),
+  counterEl = $('#pcounter'),
   fenEl = $('#fen'),
   pgnEl = $('#pgn');
 
