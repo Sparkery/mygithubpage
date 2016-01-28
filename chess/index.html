@@ -31,10 +31,7 @@
 <script>
 
 var initPuzzle = "2k5/8/1K6/1R2P3/8/8/8/8 w - - 0 1";
-var playerSource = ['b5', 'd5'];
-var playerTarget = ['d5', 'd8'];
-var aiSource = ['c8'];
-var aiTarget = ['b8'];
+var moveList = ['b5, d5', 'c8', b8, 'd5', 'd8']; //playerStart, pTerminal, aiS, aT, etc.
 var i = 0; //to keep track of which array entries of above
 
 var board,
@@ -55,10 +52,10 @@ var onDragStart = function(source, piece, position, orientation) {
 
 var onDrop = function(source, target) {
   //my foxy additions
-  if(playerSource[i] != source || playerTarget[i] != target)
+  if(playerSource[i] != source || playerTarget[i+1] != target)
     return 'snapback';
   else
-    i++;
+    i = i + 2;
   //my foxy additions
   
   // see if the move is legal
@@ -73,7 +70,8 @@ var onDrop = function(source, target) {
   
   updateStatus();
   window.setTimeout( function() {
-    game.move({from: aiSource[i-1], to: aiTarget[i-1]});
+    game.move({from: moveList[i], to: moveList[i+1]});
+    i = i + 2;
     updateStatus();
     board.position(game.fen());
   }, 100);
