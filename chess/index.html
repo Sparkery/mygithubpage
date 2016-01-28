@@ -113,11 +113,12 @@ var cfg = {
   onSnapEnd: onSnapEnd
 };
 
-setTimeout(function() {
-board = ChessBoard('board', cfg);
-game = new Chess(initPuzzle); }, 1000);
-
-updateStatus();
+setTimeout(function()
+{
+	board = ChessBoard('board', cfg);
+	game = new Chess(initPuzzle);
+	updateStatus();
+}, 1000);
 </script>
 
 
