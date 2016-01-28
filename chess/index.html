@@ -21,8 +21,11 @@
 <script src="js/chessboard.js"></script>
 <script src="js/chess.js"></script>
 <script>
+
+var initPuzzle = "rnbqkbnr/pppp1ppp/4p3/8/8/4P3/PPPP1PPP/RNBQKBNR w KQkq - 0 2";
+
 var board,
-  game = new Chess("rnbqkbnr/pppp1ppp/4p3/8/8/4P3/PPPP1PPP/RNBQKBNR w KQkq - 0 2"),
+  game = new Chess(initPuzzle),
   statusEl = $('#status'),
   fenEl = $('#fen'),
   pgnEl = $('#pgn');
@@ -92,7 +95,7 @@ var updateStatus = function() {
 
 var cfg = {
   draggable: true,
-  position: 'start',
+  position: initPuzzle,
   onDragStart: onDragStart,
   onDrop: onDrop,
   onSnapEnd: onSnapEnd
