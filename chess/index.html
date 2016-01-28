@@ -32,6 +32,10 @@
 <script>var fb = new Firebase("https://fox-chess.firebaseio.com");</script>
 <script>
 
+//from the start, just say variables exist
+var initPuzzle;
+var moveList;
+
 //read out of firebase for tactic
 fb.on("value", function(snapshot)
 	{
