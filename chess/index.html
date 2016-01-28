@@ -22,7 +22,7 @@
 <script src="js/chess.js"></script>
 <script>
 var board,
-  game = new Chess(),
+  game = new Chess("rnbqkbnr/pppp1ppp/4p3/8/8/4P3/PPPP1PPP/RNBQKBNR w KQkq - 0 2"),
   statusEl = $('#status'),
   fenEl = $('#fen'),
   pgnEl = $('#pgn');
@@ -98,7 +98,6 @@ var cfg = {
   onSnapEnd: onSnapEnd
 };
 board = ChessBoard('board', cfg);
-fenE1 = 'rnbqkbnr/pppp1ppp/4p3/8/8/4P3/PPPP1PPP/RNBQKBNR w KQkq - 0 2';
 updateStatus();
 </script>
 
