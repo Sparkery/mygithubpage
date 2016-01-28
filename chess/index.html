@@ -22,7 +22,6 @@
 <div id="board" style="width: 400px"></div>
 <p>FEN: <span id="fen"></span></p>
 <p>PGN: <span id="pgn"></span></p>
-
 <div id="pcounter">0</div>
 
 <script src="js/json3.min.js"></script>
@@ -89,7 +88,7 @@ var updateStatus = function() {
   pgnEl.html(game.pgn());
   
   if(i == moveList.length)
-    counterE1.html("1");
+    counterEl.html("1");
 };
 
 var cfg = {
