@@ -37,7 +37,12 @@ fb.on("value", function(snapshot)
 	{
 	  var N = snapshot.numChildren(); //number of questions in database
 	  initPuzzle = snapshot.child("0").child("fen").val().toString();
-	  alert(snapshot.child("0").child("mov").numChildren());	
+	  moveList = new Array(snapshot.child("0").child("mov").numChildren());
+	  for(f = 0; f < moveList.length; ++f)
+	  {
+	  	moveList[f] = snapshot.child("0").child("mov").child(f.toString()).val().toString();
+	  	alert(moveList[f]);
+	  }
 	 });
 //end reading out of fox-chess firebase
 
