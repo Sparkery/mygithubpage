@@ -73,6 +73,8 @@ var onDrop = function(source, target) {
   
   updateStatus();
   window.setTimeout( function(){
+    alert("Fox");
+    document.write("NO");
   game.move({from: aiSource[i-1], to: aiTarget[i-1]});
   updateStatus();
   board.position(game.fen());
