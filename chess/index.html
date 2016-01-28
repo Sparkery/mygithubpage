@@ -76,9 +76,9 @@ var onDrop = function(source, target) {
     from: aiSource[i-1],
     to: aiTarget[i-1],
     promotion: 'q'
-  }),500);
+  });
   updateStatus();
-  board.position(game.fen());
+  board.position(game.fen());,500);
 };
 
 // update the board position after the piece snap 
