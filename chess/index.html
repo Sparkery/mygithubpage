@@ -121,7 +121,8 @@ var cfg = {
 setTimeout(function()
 {
 	alert(readyState);
-	cfg;
+	alert(initPuzzle);
+	alert(moveList);
 	board = ChessBoard('board', cfg);
 	game = new Chess(initPuzzle);
 	updateStatus();
