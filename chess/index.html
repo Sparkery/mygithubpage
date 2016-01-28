@@ -52,7 +52,7 @@ var onDragStart = function(source, piece, position, orientation) {
 
 var onDrop = function(source, target) {
   //my foxy additions
-  if(playerSource[i] != source || playerTarget[i+1] != target)
+  if(moveList[i] != source || moveList[i+1] != target)
     return 'snapback';
   else
     i = i + 2;
