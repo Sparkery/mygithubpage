@@ -39,10 +39,11 @@ var moveList = ['b5', 'd5', 'c8', 'b8', 'd5', 'd8']; //playerStart, pTerminal, a
 var i = 0; //to keep track of which array entries of above
 
 var board,
-  setTimeout(function(){game = new Chess(initPuzzle)}, 5000),
   counterEl = $('#pcounter'),
   fenEl = $('#fen'),
   pgnEl = $('#pgn');
+  
+setTimeout(function(){game = new Chess(initPuzzle)}, 5000)
 
 // do not pick up pieces if the game is over
 // only pick up pieces for the side to move
