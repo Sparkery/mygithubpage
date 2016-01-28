@@ -30,9 +30,11 @@
 <script src="js/chess.js"></script>
 <script>
 
-var initPuzzle = "rnbqkbnr/pppp1ppp/4p3/8/8/4P3/PPPP1PPP/RNBQKBNR w KQkq - 0 2";
-var playerSource = ['f2'];
-var playerTarget = ['f3'];
+var initPuzzle = "k7/8/1KP5/1R2P3/8/8/8/8 w - - 0 1";
+var playerSource = ['b5', 'd5'];
+var playerTarget = ['d5', 'd8'];
+var aiSource = ['h8'];
+var aiTarget = ['g8'];
 var i = 0; //to keep track of which array entries of above
 
 var board,
@@ -69,6 +71,11 @@ var onDrop = function(source, target) {
   // illegal move
   if (move === null) return 'snapback';
   
+  updateStatus();
+  game.move({
+    from: aiSource[i-1];
+    to: aiTarget[i-1];
+  });
   updateStatus();
 };
 
