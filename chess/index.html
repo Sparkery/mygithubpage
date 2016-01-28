@@ -32,18 +32,24 @@
 <script>var fb = new Firebase("https://fox-chess.firebaseio.com");</script>
 <script>
 
+//read out of firebase for tactic
+fb.on("value", function(snapshot)
+	{
+	  var N = snapshot.numChildren(); //number of questions in database
+	  initPuzzle = snapshot.child("0").child("fen").val().toString();
+	  alert(snapshot.child("0").child("mov").val());	
+	 });
+//end reading out of fox-chess firebase
 
-
-var initPuzzle = "2k5/8/1K6/1R2P3/8/8/8/8 w - - 0 1";
+//var initPuzzle = "2k5/8/1K6/1R2P3/8/8/8/8 w - - 0 1";
 var moveList = ['b5', 'd5', 'c8', 'b8', 'd5', 'd8']; //playerStart, pTerminal, aiS, aT, etc.
 var i = 0; //to keep track of which array entries of above
 
 var board,
   counterEl = $('#pcounter'),
   fenEl = $('#fen'),
-  pgnEl = $('#pgn');
-  
-setTimeout(function(){game = new Chess(initPuzzle)}, 5000)
+  pgnEl = $('#pgn'),
+  game = new Chess(initPuzzle);
 
 // do not pick up pieces if the game is over
 // only pick up pieces for the side to move
