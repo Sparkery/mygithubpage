@@ -72,11 +72,11 @@ var onDrop = function(source, target) {
   if (move === null) return 'snapback';
   
   updateStatus();
-  window.setTimeout(game.move({
-    from: aiSource[i-1];
-    to: aiTarget[i-1];
-    promotion: 'q';
-  }),500);
+  game.move({
+    from: aiSource[i-1],
+    to: aiTarget[i-1],
+    promotion: 'q'
+  });
   updateStatus();
 };
 
