@@ -73,7 +73,7 @@ var onDrop = function(source, target) {
   
   updateStatus();
   window.setTimeout( function() {
-    game.move(aiSource[i-1] + aiTarget[i-1]);
+    game.move(aiSource[i-1] + '-' + aiTarget[i-1]);
     updateStatus();
     board.position(game.fen());
   }, 100);
