@@ -123,8 +123,8 @@ setTimeout(function()
 	alert(readyState);
 	alert(initPuzzle);
 	alert(moveList);
-	cfg;
 	board = ChessBoard('board', cfg);
+	board.position(initPuzzle);
 	game = new Chess(initPuzzle);
 	updateStatus();
 }, 1000);
