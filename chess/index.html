@@ -43,7 +43,6 @@
 var initPuzzle;
 var moveList;
 var q; // puzzle identifier
-var solves; //solving counter
 
 //read out of firebase for tactic
 fb.on("value", function(snapshot)
@@ -118,13 +117,14 @@ var updateStatus = function() {
   
   if(i == moveList.length)
   {
+    var solves;
     fb.on("value", function(snapshot) {
     	solves = snapshot.child(q).child("sol").val();
     	solves = solves + 1;
     });
     fb.child(q).update({"sol": solves});
+    counterEl.html("This puzzle has been solved this many times:" + solves.toString() + "!");
   }
-  counterEl.html("This puzzle has been solved this many times:" + solves.toString() + "!");
 };
 
 var cfg = {
