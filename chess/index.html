@@ -123,6 +123,7 @@ var updateStatus = function() {
     });
     fb.child(q).update({"sol": solves});
   }
+  counterEl.html("This puzzle has been solved this many times:" + solves.toString() + "!");
 };
 
 var cfg = {
@@ -139,7 +140,6 @@ setTimeout(function()
 	board.position(initPuzzle);
 	game = new Chess(initPuzzle);
 	updateStatus();
-	counterEl.html("This puzzle has been solved this many times:" + solves.toString() + "!");
 }, 1000);
 </script>
 
