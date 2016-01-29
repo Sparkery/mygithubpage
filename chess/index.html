@@ -122,7 +122,7 @@ var updateStatus = function() {
     	solves = fb.child(q).child("sol").val();
     	solves = solves + 1;
     	alert(solves);
-    });
+    //});
     fb.child(q).update({"sol": solves});
     alert(solves);
     counterEl.html("This puzzle has been solved this many times:" + solves.toString() + "!");
