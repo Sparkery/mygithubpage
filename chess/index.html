@@ -118,11 +118,11 @@ var updateStatus = function() {
   if(i == moveList.length)
   {
     var solves;
-    //fb.on("value", function(snapshot) {
-    	solves = fb.child(q).child("sol").val();
+    fb.on("value", function(snapshot) {
+    	solves = snapshot.child(q).child("sol").val();
     	solves = solves + 1;
     	alert(solves);
-    //});
+    });
     fb.child(q).update({"sol": solves});
     alert(solves);
     counterEl.html("This puzzle has been solved this many times:" + solves.toString() + "!");
