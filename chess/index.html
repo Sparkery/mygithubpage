@@ -43,6 +43,7 @@
 var initPuzzle;
 var moveList;
 var q; // puzzle identifier
+var solves; //solving counter
 
 //read out of firebase for tactic
 fb.on("value", function(snapshot)
@@ -55,7 +56,8 @@ fb.on("value", function(snapshot)
 	  {
 	  	moveList[f] = snapshot.child(q).child("mov").child(f.toString()).val().toString();
 	  }
-	  readyState = true;
+	  solves = snapshot.child(q).child("sol").val();
+	  counterEl.html("This puzzle has been solved this many times:" + solves.toString() + "!");
 	 });
 //end reading out of fox-chess firebase
 
@@ -117,15 +119,7 @@ var updateStatus = function() {
   
   if(i == moveList.length)
   {
-    var solves;
-    fb.on("value", function(snapshot) {
-    	solves = snapshot.child(q).child("sol").val();
-    	solves = solves + 1;
-    	alert(solves);
-    });
-    fb.child(q).update({"sol": solves});
-    alert(solves);
-    counterEl.html("This puzzle has been solved this many times:" + solves.toString() + "!");
+    fb.child(q).update({"sol": solves+1});
   }
 };
 
