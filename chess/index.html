@@ -22,7 +22,7 @@
 <div id="board" style="width: 400px"></div>
 <p>FEN: <span id="fen"></span></p>
 <p>PGN: <span id="pgn"></span></p>
-<div id="pcounter">0</div>
+<div id="pcounter"></div>
 
 <br><br><br>
 <h3>About</h3>
@@ -47,7 +47,7 @@ var moveList;
 fb.on("value", function(snapshot)
 	{
 	  var N = snapshot.numChildren(); //number of questions in database
-	  var q = parseInt(Math.random() * N).toString();
+	  q = parseInt(Math.random() * N).toString(); // global so that we can find a solve count later on
 	  initPuzzle = snapshot.child(q).child("fen").val().toString();
 	  moveList = new Array(snapshot.child(q).child("mov").numChildren());
 	  for(f = 0; f < moveList.length; ++f)
@@ -115,7 +115,15 @@ var updateStatus = function() {
   pgnEl.html(game.pgn());
   
   if(i == moveList.length)
-    counterEl.html("1");
+  {
+    var solves;
+    fb.on("value", function(snapshot) {
+    	solves = snapshot.child(q).child("sol").val();
+    	solves = solves + 1;
+    	snapshot.child(q).child("sol").update(solves);
+    });
+    counterEl.html("This puzzle has been solved this many times:" + solves.toString() + "!");
+  }
 };
 
 var cfg = {
