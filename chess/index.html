@@ -117,7 +117,6 @@ var updateStatus = function() {
   
   if(i == moveList.length)
   {
-    var solves;
     fb.on("value", function(snapshot) {
     	solves = snapshot.child(q).child("sol").val();
     	solves = solves + 1;
