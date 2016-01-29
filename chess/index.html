@@ -120,7 +120,7 @@ var updateStatus = function() {
     fb.on("value", function(snapshot) {
     	solves = snapshot.child(q).child("sol").val();
     	solves = solves + 1;
-    	snapshot.child(q).child("sol").update(solves);
+    	snapshot.child(q).update({sol: solves});
     });
     counterEl.html("This puzzle has been solved this many times:" + solves.toString() + "!");
   }
