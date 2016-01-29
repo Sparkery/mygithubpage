@@ -121,6 +121,7 @@ var updateStatus = function() {
     fb.on("value", function(snapshot) {
     	solves = snapshot.child(q).child("sol").val();
     	solves = solves + 1;
+    	alert(solves);
     });
     fb.child(q).update({"sol": solves});
     alert(solves);
